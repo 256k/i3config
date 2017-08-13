@@ -111,10 +111,10 @@ set $wp1 "1: WEB"
 set $wp2 "2: >_"
 set $wp3 "3:"
 set $wp4 "4:"
-set $wp5 "5: chrome test"
+set $wp5 "5:"
 set $wp6 "6:"
-set $wp7 "7:"
-set $wp8 "8:"
+set $wp7 "7: Slack"
+set $wp8 "8: Trello"
 set $wp9 "9: Netflix"
 set $wp10 "10: Spotify"
 
@@ -146,9 +146,21 @@ bindsym $mod+Shift+0 move container to workspace $wp10
 for_window [class="."] focus
 assign [class="Code"] $wp2
 for_window [class="Spotify"] move to workspace $wp10
-assign [class="Google-chrome"] $wp1 
-for_window [class="Google-chrome" title="Netflix"] move to workspace $wp9 && focus
 
+bindsym $mod+Control+c exec google-chrome
+assign [class="Google-chrome"] $wp1 
+
+bindsym $mod+Control+n exec google-chrome --app=http://www.netflix.com/ -fullscreen
+for_window [class="Google-chrome" title="Netflix"] move to workspace $wp9
+for_window [class="Google-chrome" title="Netflix"] focus
+
+bindsym $mod+Control+t exec google-chrome --app=http://www.trello.com/ -fullscreen
+for_window [class="Google-chrome" title="Trello"] move to workspace $wp8
+for_window [class="Google-chrome" title="Trello"] focus
+
+bindsym $mod+Control+s exec google-chrome --app=https://pitonneux.slack.com/messages/C03HB40G7/ -fullscreen
+for_window [class="Google-chrome" title="Slack"] move to workspace $wp7
+for_window [class="Google-chrome" title="Slack"] focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -197,6 +209,8 @@ bar {
         }
 }
 
+# Default launch conditions
+
 exec_always feh --bg-scale /home/fayek/Pictures/wallpaper1.jpg
 exec_always source ~/.bash_profiles
 
@@ -208,7 +222,7 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # App shortcuts
-bindsym $mod+Control+n exec google-chrome --app=http://www.netflix.com/ -fullscreen
+
 
 
 # Resize shortcuts
@@ -217,10 +231,10 @@ bindsym $mod+Shift+i resize shrink height 10 px or 10 ppt
 bindsym $mod+Shift+o resize grow height 10 px or 10 ppt
 bindsym $mod+Shift+p resize  grow width 10 px or 10 ppt
 
-bindsym $mod+Control+left resize shrink width 10 px or 10 ppt
-bindsym $mod+Control+down resize shrink height 10 px or 10 ppt
-bindsym $mod+Control+up resize grow height 10 px or 10 ppt
-bindsym $mod+Control+right resize  grow width 10 px or 10 ppt
+# bindsym $mod+Shift+left resize shrink width 10 px or 10 ppt
+# bindsym $mod+Shift+down resize shrink height 10 px or 10 ppt
+# bindsym $mod+Shift+up resize grow height 10 px or 10 ppt
+# bindsym $mod+Shift+right resize  grow width 10 px or 10 ppt
 
 
 
