@@ -142,10 +142,21 @@ bindsym $mod+Shift+8 move container to workspace $wp8
 bindsym $mod+Shift+9 move container to workspace $wp9
 bindsym $mod+Shift+0 move container to workspace $wp10
 
+#reference:
+#C: chrome
+#M: music (spotify)
+#N: netflix
+#S: slack
+#T: Trello
+
+
+
 # Dedicated workspaces
 for_window [class="."] focus
 assign [class="Code"] $wp2
 for_window [class="Spotify"] move to workspace $wp10
+for_window [class="Spotify"] focus
+bindsym $mod+Control+m exec --no-startup-id spotify
 
 bindsym $mod+Control+c exec google-chrome
 assign [class="Google-chrome"] $wp1 
@@ -260,3 +271,5 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 
 
 
+#Startup apps
+exec google-chrome --app=https://pitonneux.slack.com/messages/C03HB40G7/ -fullscreen
