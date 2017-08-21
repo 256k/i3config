@@ -35,7 +35,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 
 
 set $bg-color 	         #2f343f
@@ -138,6 +138,13 @@ bindsym $mod+8 workspace $wp8
 bindsym $mod+9 workspace $wp9
 bindsym $mod+0 workspace $wp10
 
+#workspaces location:
+bindsym $mod+Control+Right move workspace to output Right
+bindsym $mod+Control+Left move workspace to output Left
+workspace 1 output HDMI-1
+workspace 2 output HDMI-1
+workspace 7 output DVI-D-1
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $wp1 
 bindsym $mod+Shift+2 move container to workspace $wp2
@@ -231,7 +238,7 @@ bar {
 # Default launch conditions
 
 exec_always feh --bg-scale /home/fayek/Pictures/wallpaper1.jpg
-exec_always source ~/.bash_profiles
+new_window pixel
 
 # my keyboard shortcuts
 
@@ -287,4 +294,3 @@ bindsym XF86AudioMute exec amixer -q set Master toggle
 #Startup apps
 exec google-chrome --app=https://pitonneux.slack.com/messages/C03HB40G7/ -fullscreen
 exec compton
-new_window pixel
