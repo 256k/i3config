@@ -7,6 +7,26 @@ exec xrandr --output DVI-D-1 --off && xrandr --output HDMI-1 --auto --primary --
 # this file and re-run i3-config-wizard(1).
 #
 
+# this is for pywal
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+# client.focused          $bg     $bg     $fg  $bg       $bg
+# client.focused_inactive $bg     $bg     $fg  $bg       $bg
+# client.unfocused        $bg     $bg     $fg  $bg       $bg
+# client.urgent           $bg     $bg     $fg  $bg       $bg
+# client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+# client.background       $bg
+# client.focused #ff0000
+
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -173,6 +193,8 @@ for_window [class="Spotify"] move to workspace $wp10
 for_window [class="Spotify"] focus
 bindsym $mod+Control+m exec --no-startup-id spotify
 
+bindsym $mod+Control+z exec i3-sensible-terminal -e "mpd && ncmpcpp"
+
 bindsym $mod+Control+c exec google-chrome
 assign [class="Google-chrome"] $wp1 
 
@@ -251,8 +273,8 @@ bindsym $mod+Shift+Tab workspace prev
 
 #power settings:
 # bindsym  exec systemctl reboot
-bindsym $mod+Pause exec systemctl poweroff
-
+bindsym $mod+Pause exec shutdown -h now
+bindsym $mod+Scroll_Lock exec reboot
 
 #print screens:
 
